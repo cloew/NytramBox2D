@@ -1,6 +1,9 @@
 #include "NytramBox2D.h"
 
+WorldManager worldManager;
+
 unsigned int Add_World()
 {
-	return 0;
+	b2Vec2 gravity(0,0);
+	return worldManager.addWorld(gravity);
 }
