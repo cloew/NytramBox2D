@@ -7,21 +7,24 @@
 #include <iostream>
 using namespace std;
 
-struct MyVec
-{
-	float32 x, y;
-};
-
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	MyVec v;
-	v.x = 0;
-	v.y = 2;
+	BodyDef bodyDef;
+	bodyDef.type = b2BodyType::b2_dynamicBody;
+	bodyDef.fixedRotation = true;
 
-	b2Vec2* v2 = (b2Vec2*) &v;
-	cout << "X: " << v2->x << " Y: " << v2->y << endl;
-	cout << "Mag: " << v2->Length() << endl;
+	unsigned int worldId = World_Add();
+	unsigned int bodyId = Body_Add(worldId, bodyDef);
+	unsigned int fixtureId = Fixture_Add(bodyId);
+
+	for (int i = 0; i < 10; i++)
+	{
+		World_Step(worldId);
+		const b2Vec2 v = Body_GetPosition(bodyId);
+		cout << "X: " << v.x << " Y: " << v.y << endl;
+	}
+
 	system("PAUSE");
 	return 0;
 }

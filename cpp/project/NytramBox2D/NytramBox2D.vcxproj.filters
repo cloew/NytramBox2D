@@ -30,6 +30,9 @@
     <ClInclude Include="..\..\src\Structures\BodyDef.h">
       <Filter>Structures</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\FixtureManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\NytramBox2D.cpp">
@@ -39,6 +42,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\BodyManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\FixtureManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
