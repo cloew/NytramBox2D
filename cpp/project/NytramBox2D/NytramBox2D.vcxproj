@@ -19,15 +19,20 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\src\BodyManager.h" />
+    <ClInclude Include="..\..\src\NytramBox2D.h" />
+    <ClInclude Include="..\..\src\Structures\BodyDef.h" />
+    <ClInclude Include="..\..\src\WorldManager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\BodyManager.cpp" />
+    <ClCompile Include="..\..\src\NytramBox2D.cpp" />
+    <ClCompile Include="..\..\src\WorldManager.cpp" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\..\..\..\..\..\lib\Box2D_v2.3.0\Box2D\Build\vs2012\Box2D.vcxproj">
       <Project>{98400d17-43a5-1a40-95be-c53ac78e7694}</Project>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\src\NytramBox2D.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\src\NytramBox2D.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{BF8A522F-492E-480E-856C-27D9131FC390}</ProjectGuid>
@@ -92,7 +97,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\dev\lib\Box2D_v2.3.0\Box2D\Box2D;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\dev\lib\Box2D_v2.3.0\Box2D;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>

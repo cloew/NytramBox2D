@@ -9,10 +9,8 @@ using namespace std;
 class WorldManager
 {
 public:
-	WorldManager(void);
-	~WorldManager(void);
-
 	unsigned int addWorld(b2Vec2 gravity);
+	b2World* getWorld(unsigned int id) {return worlds[id-1];}
 
 private:
 	vector<b2World*> worlds;
