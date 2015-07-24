@@ -39,6 +39,9 @@
     <ClInclude Include="..\..\src\Collisions\CollisionHandler.h">
       <Filter>Collisions</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\Structures\FixtureDef.h">
+      <Filter>Structures</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\NytramBox2D.cpp">

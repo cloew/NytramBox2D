@@ -1,8 +1,8 @@
 #include "FixtureManager.h"
 
-unsigned int FixtureManager::addFixture(b2Body* body, b2Shape* shape)
+unsigned int FixtureManager::addFixture(b2Body* body, const b2FixtureDef* fixtureDef)
 {
-	b2Fixture* fixture = body->CreateFixture(shape, 1);
+	b2Fixture* fixture = body->CreateFixture(fixtureDef);
 	fixtures.push_back(fixture);
 	return fixtures.size();
 }

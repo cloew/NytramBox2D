@@ -24,6 +24,7 @@
     <ClInclude Include="..\..\src\FixtureManager.h" />
     <ClInclude Include="..\..\src\NytramBox2D.h" />
     <ClInclude Include="..\..\src\Structures\BodyDef.h" />
+    <ClInclude Include="..\..\src\Structures\FixtureDef.h" />
     <ClInclude Include="..\..\src\WorldManager.h" />
   </ItemGroup>
   <ItemGroup>
