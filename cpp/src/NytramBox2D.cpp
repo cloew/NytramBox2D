@@ -10,13 +10,13 @@ unsigned int World_Add()
 	return worldManager.addWorld(gravity);
 }
 
-void World_Step(unsigned int worldId)
+void World_Step(unsigned int worldId, float32 step, int32 velocityIterations, int32 positionIterations)
 {
 	b2World* world = worldManager.getWorld(worldId);
-	world->Step(1, 10, 10);
+	world->Step(step, velocityIterations, positionIterations);
 }
 
-unsigned int Body_Add(unsigned int worldId, const BodyDef& bodyDef)
+unsigned int World_AddBody(unsigned int worldId, const BodyDef& bodyDef)
 {
 	return bodyManager.addBody(worldManager.getWorld(worldId), ToBodyDef(bodyDef));
 }
@@ -26,7 +26,10 @@ const b2Vec2& Body_GetPosition(unsigned int bodyId)
 	return bodyManager.getPosition(bodyId);
 }
 
-unsigned int Fixture_Add(unsigned int bodyId)
+unsigned int Body_AddBoxFixture(unsigned int bodyId, float width, float height)
 {
-	return fixtureManager.addFixture(bodyManager.getBody(bodyId));
+	b2PolygonShape box;
+	box.SetAsBox(width/2, height/2);
+
+	return fixtureManager.addFixture(bodyManager.getBody(bodyId), &box);
 }

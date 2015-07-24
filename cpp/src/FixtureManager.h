@@ -8,7 +8,7 @@ using namespace std;
 class FixtureManager
 {
 public:
-	unsigned int addFixture(b2Body* body);
+	unsigned int addFixture(b2Body* body, b2Shape* shape);
 	
 private:
 	vector<b2Fixture*> fixtures;

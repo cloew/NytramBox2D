@@ -15,12 +15,12 @@ int _tmain(int argc, _TCHAR* argv[])
 	bodyDef.fixedRotation = true;
 
 	unsigned int worldId = World_Add();
-	unsigned int bodyId = Body_Add(worldId, bodyDef);
-	unsigned int fixtureId = Fixture_Add(bodyId);
+	unsigned int bodyId = World_AddBody(worldId, bodyDef);
+	unsigned int fixtureId = Body_AddBoxFixture(bodyId, 2, 2);
 
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < 60; i++)
 	{
-		World_Step(worldId);
+		World_Step(worldId, 1/60.0, 10, 10);
 		const b2Vec2 v = Body_GetPosition(bodyId);
 		cout << "X: " << v.x << " Y: " << v.y << endl;
 	}
