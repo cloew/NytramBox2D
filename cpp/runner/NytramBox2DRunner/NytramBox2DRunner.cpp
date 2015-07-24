@@ -24,9 +24,12 @@ int _tmain(int argc, _TCHAR* argv[])
 	bodyDef3.position.Set(0, 1);
 
 	FixtureDef fixtureDef;
+	fixtureDef.userData = (void*) 1;
 	fixtureDef.restitution = 1;
 	FixtureDef fixtureDef2;
+	fixtureDef2.userData = (void*) 2;
 	FixtureDef fixtureDef3;
+	fixtureDef3.userData = (void*) 3;
 	fixtureDef3.isSensor = true;
 
 	unsigned int worldId = World_Add();
