@@ -33,3 +33,11 @@ unsigned int Body_AddBoxFixture(unsigned int bodyId, float width, float height)
 
 	return fixtureManager.addFixture(bodyManager.getBody(bodyId), &box);
 }
+
+unsigned int Body_AddEdgeFixture(unsigned int bodyId, const b2Vec2& v1, const b2Vec2& v2)
+{
+	b2EdgeShape edge;
+	edge.Set(v1, v2);
+
+	return fixtureManager.addFixture(bodyManager.getBody(bodyId), &edge);
+}

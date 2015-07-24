@@ -12,13 +12,20 @@ int _tmain(int argc, _TCHAR* argv[])
 {
 	BodyDef bodyDef;
 	bodyDef.type = b2BodyType::b2_dynamicBody;
+	bodyDef.position.Set(0, 20);
 	bodyDef.fixedRotation = true;
+
+	BodyDef bodyDef2;
+	bodyDef2.type = b2BodyType::b2_staticBody;
+	bodyDef2.position.Set(0, 0);
 
 	unsigned int worldId = World_Add();
 	unsigned int bodyId = World_AddBody(worldId, bodyDef);
 	unsigned int fixtureId = Body_AddBoxFixture(bodyId, 2, 2);
+	unsigned int bodyId2 = World_AddBody(worldId, bodyDef2);
+	unsigned int fixtureId2 = Body_AddEdgeFixture(bodyId2, b2Vec2(-10, 0), b2Vec2(10, 0));
 
-	for (int i = 0; i < 60; i++)
+	for (int i = 0; i < 10*60; i++)
 	{
 		World_Step(worldId, 1/60.0, 10, 10);
 		const b2Vec2 v = Body_GetPosition(bodyId);
