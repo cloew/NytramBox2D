@@ -41,3 +41,14 @@ unsigned int Body_AddEdgeFixture(unsigned int bodyId, const FixtureDef fixtureDe
 
 	return fixtureManager.addFixture(bodyManager.getBody(bodyId), &ToFixtureDef(fixtureDef, &edge));
 }
+
+// Collisions
+void Collision_SetStartCallback(Collision_Callback_fp callback)
+{
+	worldManager.setCollisionStartCallback(callback);
+}
+
+void Collision_SetStopCallback(Collision_Callback_fp callback)
+{
+	worldManager.setCollisionStopCallback(callback);
+}

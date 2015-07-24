@@ -7,6 +7,16 @@
 #include <iostream>
 using namespace std;
 
+void CollisionStart(unsigned int colliderA, unsigned int colliderB)
+{
+	cout << colliderA << " hit " << colliderB << endl;
+}
+
+void CollisionStop(unsigned int colliderA, unsigned int colliderB)
+{
+	cout << colliderA << " stopped hitting " << colliderB << endl;
+}
+
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -33,6 +43,9 @@ int _tmain(int argc, _TCHAR* argv[])
 	fixtureDef3.isSensor = true;
 
 	unsigned int worldId = World_Add();
+	Collision_SetStartCallback(CollisionStart);
+	Collision_SetStopCallback(CollisionStop);
+
 	unsigned int bodyId = World_AddBody(worldId, bodyDef);
 	unsigned int fixtureId = Body_AddBoxFixture(bodyId, fixtureDef, 2, 2);
 	unsigned int bodyId2 = World_AddBody(worldId, bodyDef2);
