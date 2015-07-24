@@ -1,6 +1,6 @@
 from ctypes import Structure, c_float
 
-class B2Vec2(Structure):
+class Vec2(Structure):
     """ Represents a Box 2D Vector """
     _fields_ = [("x", c_float),
                 ("y", c_float)]
