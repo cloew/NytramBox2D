@@ -19,15 +19,26 @@ int _tmain(int argc, _TCHAR* argv[])
 	bodyDef2.type = b2BodyType::b2_staticBody;
 	bodyDef2.position.Set(0, 0);
 
+	BodyDef bodyDef3;
+	bodyDef3.type = b2BodyType::b2_staticBody;
+	bodyDef3.position.Set(0, 1);
+
 	FixtureDef fixtureDef;
 	fixtureDef.restitution = 1;
 	FixtureDef fixtureDef2;
+	FixtureDef fixtureDef3;
+	fixtureDef3.isSensor = true;
 
 	unsigned int worldId = World_Add();
 	unsigned int bodyId = World_AddBody(worldId, bodyDef);
 	unsigned int fixtureId = Body_AddBoxFixture(bodyId, fixtureDef, 2, 2);
 	unsigned int bodyId2 = World_AddBody(worldId, bodyDef2);
 	unsigned int fixtureId2 = Body_AddEdgeFixture(bodyId2, fixtureDef2, b2Vec2(-10, 0), b2Vec2(10, 0));
+	unsigned int bodyId3 = World_AddBody(worldId, bodyDef3);
+	unsigned int fixtureId3 = Body_AddBoxFixture(bodyId3, fixtureDef3, 20, 2);
+	
+	const b2Vec2 v = Body_GetPosition(bodyId3);
+	cout << "X: " << v.x << " Y: " << v.y << endl;
 
 	for (int i = 0; i < 2*60; i++)
 	{
