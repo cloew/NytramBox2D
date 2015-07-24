@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\BodyManager.h" />
+    <ClInclude Include="..\..\src\Collisions\CollisionHandler.h" />
     <ClInclude Include="..\..\src\FixtureManager.h" />
     <ClInclude Include="..\..\src\NytramBox2D.h" />
     <ClInclude Include="..\..\src\Structures\BodyDef.h" />
@@ -27,6 +28,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\BodyManager.cpp" />
+    <ClCompile Include="..\..\src\Collisions\CollisionHandler.cpp" />
     <ClCompile Include="..\..\src\FixtureManager.cpp" />
     <ClCompile Include="..\..\src\NytramBox2D.cpp" />
     <ClCompile Include="..\..\src\WorldManager.cpp" />

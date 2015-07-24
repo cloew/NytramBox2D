@@ -1,6 +1,7 @@
 #pragma once
 
 #include <Box2D/Box2D.h>
+#include "Collisions/CollisionHandler.h"
 
 #include <vector>
 
@@ -14,5 +15,6 @@ public:
 
 private:
 	vector<b2World*> worlds;
+	CollisionHandler collisionHandler;
 };
 

@@ -25,7 +25,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	unsigned int bodyId2 = World_AddBody(worldId, bodyDef2);
 	unsigned int fixtureId2 = Body_AddEdgeFixture(bodyId2, b2Vec2(-10, 0), b2Vec2(10, 0));
 
-	for (int i = 0; i < 10*60; i++)
+	for (int i = 0; i < 2*60; i++)
 	{
 		World_Step(worldId, 1/60.0, 10, 10);
 		const b2Vec2 v = Body_GetPosition(bodyId);

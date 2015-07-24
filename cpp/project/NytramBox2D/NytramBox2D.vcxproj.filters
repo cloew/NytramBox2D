@@ -16,6 +16,9 @@
     <Filter Include="Structures">
       <UniqueIdentifier>{ab5a1522-8418-4e04-9582-310baf9fdd1f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Collisions">
+      <UniqueIdentifier>{0533fa1a-0d43-4331-bbf1-d28f14d5baa5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\NytramBox2D.h">
@@ -33,6 +36,9 @@
     <ClInclude Include="..\..\src\FixtureManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\Collisions\CollisionHandler.h">
+      <Filter>Collisions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\NytramBox2D.cpp">
@@ -46,6 +52,9 @@
     </ClCompile>
     <ClCompile Include="..\..\src\FixtureManager.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Collisions\CollisionHandler.cpp">
+      <Filter>Collisions</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
