@@ -4,9 +4,8 @@ WorldManager worldManager;
 BodyManager bodyManager;
 FixtureManager fixtureManager;
 
-unsigned int World_Add()
+unsigned int World_Add(const b2Vec2& gravity)
 {
-	b2Vec2 gravity(0,-10);
 	return worldManager.addWorld(gravity);
 }
 

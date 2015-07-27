@@ -16,7 +16,7 @@ extern "C" {
 	typedef void (*Collision_Callback_fp)(unsigned int, unsigned int);
 
 	// World
-	NYTRAM_API unsigned int World_Add();
+	NYTRAM_API unsigned int World_Add(const b2Vec2& gravity);
 	NYTRAM_API void World_Step(unsigned int worldId, float32 step, int32 velocityIterations, int32 positionIterations);
 	NYTRAM_API unsigned int World_AddBody(unsigned int worldId, const BodyDef& bodyDef);
 

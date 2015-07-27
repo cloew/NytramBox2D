@@ -42,7 +42,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	fixtureDef3.userData = (void*) 3;
 	fixtureDef3.isSensor = true;
 
-	unsigned int worldId = World_Add();
+	unsigned int worldId = World_Add(b2Vec2(0, -10));
 	Collision_SetStartCallback(CollisionStart);
 	Collision_SetStopCallback(CollisionStop);
 
