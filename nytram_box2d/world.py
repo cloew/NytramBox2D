@@ -1,5 +1,5 @@
 from .engine import CppEngine, Vec2
-from ctypes import c_float, byref
+from ctypes import byref
 
 class World:
     """ Represents a World in the Box2D Engine """
@@ -10,4 +10,4 @@ class World:
         
     def step(self, timeStep, velocityIterations=10, positionIterations=10):
         """ Step the world """
-        CppEngine.World_Step(self.id, c_float(timeStep), velocityIterations, positionIterations)
+        CppEngine.World_Step(self.id, timeStep, velocityIterations, positionIterations)
