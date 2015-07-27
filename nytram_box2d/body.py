@@ -11,4 +11,4 @@ class Body:
     @property
     def position(self):
         """ Return the position """
-        return CppEngine.Body_GetPosition(self.id)
+        return CppEngine.Body_GetPosition(self.id).contents
