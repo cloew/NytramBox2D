@@ -30,7 +30,6 @@ unsigned int Body_AddBoxFixture(unsigned int bodyId, const FixtureDef fixtureDef
 {
 	b2PolygonShape box;
 	box.SetAsBox(width/2, height/2);
-
 	return fixtureManager.addFixture(bodyManager.getBody(bodyId), &ToFixtureDef(fixtureDef, &box));
 }
 

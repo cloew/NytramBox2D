@@ -2,6 +2,8 @@
 
 #include "Box2D/Collision/Shapes/b2PolygonShape.h"
 #include "Box2D/Dynamics/b2Fixture.h"
+
+#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -13,4 +15,3 @@ public:
 private:
 	vector<b2Fixture*> fixtures;
 };
-
