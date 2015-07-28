@@ -12,6 +12,8 @@ class CollisionManager:
         self.idToCollider = {}
         self.idProvider = Incrementer(startAt=1)
         
+    def start(self):
+        """ Start the collision Manager by binding the Collision Callbacks """
         self.startCallback = CollisionCallback(self.performCollisionStart)
         Box2DEngine.Collision_SetStartCallback(self.startCallback)
         
