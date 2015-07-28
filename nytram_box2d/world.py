@@ -1,6 +1,6 @@
 from .engine import Box2DEngine, Vec2
 
-from nytram.engine import CppEngine as NytramEngine, LoopCallback
+from nytram.engine import NytramEngine, LoopCallback
 from ctypes import byref
 
 class World:
