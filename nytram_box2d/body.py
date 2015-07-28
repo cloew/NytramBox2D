@@ -1,8 +1,11 @@
 from .engine import Box2DEngine
 from .engine.body_def import BodyDef
+from .transform import BodyTransform
+from nytram.engine import EngineAttr
 
 class Body:
     """ Represents a Box2D Body """
+    entity = EngineAttr("applyTransform")
     
     def __init__(self, fixtures, **kwargs):
         """ Initialize the Body """
@@ -10,10 +13,10 @@ class Body:
         self.fixtures = fixtures
         self.bodyDef = BodyDef(**kwargs)
         
-    @property
-    def position(self):
-        """ Return the position """
-        return Box2DEngine.Body_GetPosition(self.id).contents
+    def applyTransform(self):
+        """ Apply the Body Transform """
+        bodyTransform = BodyTransform(self.entity.transform)
+        self.entity.transform = bodyTransform
         
     def start(self):
         """ Start the body in the Physics Engine """
