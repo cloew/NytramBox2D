@@ -25,3 +25,13 @@ class Collision:
         self.collidablePair = collidablePair
         self.start = start
         self.stop = stop
+        
+    def startCollision(self, collider1, collider2):
+        """ Start the collision """
+        if self.start:
+            self.start(collider1, collider2)
+        
+    def stopCollision(self, collider1, collider2):
+        """ Stop the collision """
+        if self.stop:
+            self.stop(collider1, collider2)
