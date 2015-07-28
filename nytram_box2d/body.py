@@ -1,4 +1,4 @@
-from .engine import Box2DEngine
+from .engine import Box2DEngine, Vec2
 from .engine.body_def import BodyDef
 from .transform import BodyTransform
 from nytram.engine import EngineAttr
@@ -20,6 +20,7 @@ class Body:
         
     def start(self):
         """ Start the body in the Physics Engine """
+        self.bodyDef.position = Vec2(self.position.x, self.position.y)
         self.id = Box2DEngine.World_AddBody(self.world.id, self.bodyDef)
         
         for fixture in self.fixtures:
@@ -29,3 +30,8 @@ class Body:
     def world(self):
         """ Return the world this body is associated with """
         return self.entity.scene.world
+        
+    @property
+    def position(self):
+        """ Return the body's matching transform position """
+        return self.entity.transform.position

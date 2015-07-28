@@ -1,5 +1,7 @@
 from ..engine import Box2DEngine
+from kao_decorators import proxy_for
 
+@proxy_for("graphicalTransform", ["position", "scale", "rotation"])
 class BodyTransform:
     """ Represents a transform that uses its bodies position to determine its location """
     
