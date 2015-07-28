@@ -9,6 +9,9 @@ public:
 	b2Body* getBody(unsigned int id) {return bodies[id-1];}
 	const b2Vec2& getPosition(unsigned int id) {return getBody(id)->GetPosition();}
 
+
+	void setPosition(unsigned int id, const b2Vec2& position) {b2Body* body = getBody(id); body->SetTransform(position, body->GetAngle());}
+
 private:
 	vector<b2Body*> bodies;
 };

@@ -4,6 +4,7 @@ WorldManager worldManager;
 BodyManager bodyManager;
 FixtureManager fixtureManager;
 
+// World
 unsigned int World_Add(const b2Vec2& gravity)
 {
 	return worldManager.addWorld(gravity);
@@ -20,9 +21,15 @@ unsigned int World_AddBody(unsigned int worldId, const BodyDef& bodyDef)
 	return bodyManager.addBody(worldManager.getWorld(worldId), ToBodyDef(bodyDef));
 }
 
+// Body
 const b2Vec2& Body_GetPosition(unsigned int bodyId)
 {
 	return bodyManager.getPosition(bodyId);
+}
+
+void Body_SetPosition(unsigned int bodyId, const b2Vec2& position)
+{
+	bodyManager.getPosition(bodyId);
 }
 
 unsigned int Body_AddBoxFixture(unsigned int bodyId, const FixtureDef& fixtureDef, float width, float height)
