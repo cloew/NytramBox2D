@@ -5,10 +5,10 @@ from .fixture_def import FixtureDef
 from ctypes import cdll, c_int, c_uint, c_float, POINTER, CFUNCTYPE
 from nytram.engine import EngineCallback
 
-CppEngine = cdll.LoadLibrary("NytramBox2D.dll")
+Box2DEngine = cdll.LoadLibrary("NytramBox2D.dll")
 
 CollisionCallback = EngineCallback(CFUNCTYPE(None, c_uint, c_uint))
 
-CppEngine.Body_GetPosition.restype = POINTER(Vec2)
-CppEngine.Body_AddBoxFixture.argtypes = [c_uint, FixtureDef, c_float, c_float]
-CppEngine.World_Step.argtypes = [c_uint, c_float, c_int, c_int]
+Box2DEngine.Body_GetPosition.restype = POINTER(Vec2)
+Box2DEngine.Body_AddBoxFixture.argtypes = [c_uint, FixtureDef, c_float, c_float]
+Box2DEngine.World_Step.argtypes = [c_uint, c_float, c_int, c_int]

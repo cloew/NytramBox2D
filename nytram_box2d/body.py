@@ -1,4 +1,4 @@
-from .engine import CppEngine
+from .engine import Box2DEngine
 from .engine.body_def import BodyDef
 
 class Body:
@@ -6,9 +6,9 @@ class Body:
     
     def __init__(self, world, **kwargs):
         """ Initialize the Body """
-        self.id = CppEngine.World_AddBody(world.id, BodyDef(**kwargs))
+        self.id = Box2DEngine.World_AddBody(world.id, BodyDef(**kwargs))
         
     @property
     def position(self):
         """ Return the position """
-        return CppEngine.Body_GetPosition(self.id).contents
+        return Box2DEngine.Body_GetPosition(self.id).contents

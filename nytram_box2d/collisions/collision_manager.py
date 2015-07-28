@@ -1,5 +1,5 @@
 from .collidable_pair import CollidablePair
-from ..engine import CollisionCallback, CppEngine
+from ..engine import CollisionCallback, Box2DEngine
 
 from kao_sequence import Incrementer
         
@@ -13,10 +13,10 @@ class CollisionManager:
         self.idProvider = Incrementer(startAt=1)
         
         self.startCallback = CollisionCallback(self.performCollisionStart)
-        CppEngine.Collision_SetStartCallback(self.startCallback)
+        Box2DEngine.Collision_SetStartCallback(self.startCallback)
         
         self.stopCallback = CollisionCallback(self.performCollisionStop)
-        CppEngine.Collision_SetStopCallback(self.stopCallback)
+        Box2DEngine.Collision_SetStopCallback(self.stopCallback)
         
     def register(self, collider):
         """ Register the collider """

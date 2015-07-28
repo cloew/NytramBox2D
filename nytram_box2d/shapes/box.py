@@ -1,4 +1,4 @@
-from ..engine import CppEngine
+from ..engine import Box2DEngine
 
 from ctypes import c_float
 
@@ -12,4 +12,4 @@ class Box:
         
     def apply(self, body, fixtureDef):
         """ Apply the shape and fixture definition to the body """
-        return CppEngine.Body_AddBoxFixture(body.id, fixtureDef, self.width, self.height)
+        return Box2DEngine.Body_AddBoxFixture(body.id, fixtureDef, self.width, self.height)
