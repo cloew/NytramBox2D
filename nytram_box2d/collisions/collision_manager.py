@@ -31,16 +31,16 @@ class CollisionManager:
         collider1 = self.idToCollider[id1]
         collider2 = self.idToCollider[id2]
         
-        collision = self.findCollision(collider1, collider2)
-        collision.startCollision(collider1, collider2)
+        collision, firstCollider, secondCollider = self.findCollision(collider1, collider2)
+        collision.startCollision(firstCollider, secondCollider)
         
     def performCollisionStop(self, id1, id2):
         """ Perform the collision """
         collider1 = self.idToCollider[id1]
         collider2 = self.idToCollider[id2]
         
-        collision = self.findCollision(collider1, collider2)
-        collision.stopCollision(collider1, collider2)
+        collision, firstCollider, secondCollider = self.findCollision(collider1, collider2)
+        collision.stopCollision(firstCollider, secondCollider)
         
     def findCollision(self, collider1, collider2):
         """ Return the collision """
@@ -48,6 +48,10 @@ class CollisionManager:
         for pair in possiblePairs:
             actingPair = CollidablePair(collider1.pairToRegistration[pair].actsAs, collider2.pairToRegistration[pair].actsAs)
             if actingPair == pair:
-                return self.collidablePairToCollision[pair]
+                collision = self.collidablePairToCollision[pair]
+                if actingPair.first == pair.first:
+                    return collision, collider1, collider2
+                else:
+                    return collision, collider2, collider1
         else:
             return None
