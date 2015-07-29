@@ -7,14 +7,14 @@ struct FixtureDef
 	FixtureDef()
 	{
 		userData = NULL;
-		//friction = 0.2f;
+		friction = 0.2f;
 		restitution = 0.0f;
 		density = 0.0f;
 		isSensor = false;
 	}
 	
 	void* userData;
-	//float32 friction;
+	float32 friction;
 	float32 restitution;
 	float32 density;
 	bool isSensor;
@@ -26,6 +26,7 @@ b2FixtureDef ToFixtureDef(const FixtureDef& nytFixtureDef, const b2Shape* shape)
 	b2FixtureDef fixtureDef;
 	fixtureDef.shape = shape;
 	fixtureDef.userData = nytFixtureDef.userData;
+	fixtureDef.friction = nytFixtureDef.friction;
 	fixtureDef.restitution = nytFixtureDef.restitution;
 	fixtureDef.density = nytFixtureDef.density;
 	fixtureDef.isSensor = nytFixtureDef.isSensor;
