@@ -44,7 +44,7 @@ const b2Vec2& Body_GetVelocity(unsigned int bodyId)
 
 void Body_SetPosition(unsigned int bodyId, const b2Vec2& position)
 {
-	bodyManager.getPosition(bodyId);
+	bodyManager.setPosition(bodyId, position);
 }
 
 unsigned int Body_AddBoxFixture(unsigned int bodyId, const FixtureDef& fixtureDef, float width, float height)

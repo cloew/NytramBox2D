@@ -20,6 +20,7 @@ class BodyTransform:
     def update(self):
         """ Update the body transform """
         position = self.getCurrentPosition()
+        # print("Updating Body position:", position)
         self.graphicalTransform.position.assign(x=position.x, y=position.y)
         
     def getCurrentPosition(self):

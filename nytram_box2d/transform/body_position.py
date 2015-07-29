@@ -1,8 +1,10 @@
-from ..engine import Box2DEngine
+from ..engine import Box2DEngine, Vec2
 from nytram.engine import EngineAttr
+
+from ctypes import byref
 from kao_decorators import proxy_for
 
-@proxy_for("graphicalPosition", ["z"])
+@proxy_for("graphicalPosition", ["z", "__repr__"])
 class BodyPosition:
     """ Represents a body position """
     body = EngineAttr("setPhysicsPosition")
@@ -41,7 +43,12 @@ class BodyPosition:
         self.graphicalPosition.y = value
         self.setPhysicsPosition()
         
+    @property
+    def vec2Position(self):
+        """ Return the Vector form of the position """
+        return Vec2(self.x, self.y)
+        
     def setPhysicsPosition(self):
         """ Set the Physics Position """
         if self.body.id:
-            Box2DEngine.Body_SetPosition(self.body.id, self.graphicalPosition.x, self.graphicalPosition.y)
+            Box2DEngine.Body_SetPosition(self.body.id, byref(self.vec2Position))
