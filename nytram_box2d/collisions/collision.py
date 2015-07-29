@@ -29,9 +29,9 @@ class Collision:
     def startCollision(self, collider1, collider2):
         """ Start the collision """
         if self.start:
-            self.start(collider1, collider2)
+            self.start(collider1.entity, collider2.entity)
         
     def stopCollision(self, collider1, collider2):
         """ Stop the collision """
         if self.stop:
-            self.stop(collider1, collider2)
+            self.stop(collider1.entity, collider2.entity)
