@@ -11,6 +11,13 @@ class BodyPosition:
         """ Initialize the body position """
         self.graphicalPosition = graphicalPosition
         self.body = body
+        
+    def assign(self, x=None, y=None):
+        """ Assign the position """
+        if x is not None:
+            self.x = x
+        if y is not None:
+            self.y = y
     
     @property
     def x(self):

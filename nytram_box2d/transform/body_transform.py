@@ -2,7 +2,7 @@ from .body_position import BodyPosition
 from ..engine import Box2DEngine
 from kao_decorators import proxy_for
 
-@proxy_for("graphicalTransform", ["position", "scale", "rotation"])
+@proxy_for("graphicalTransform", ["scale", "rotation"])
 class BodyTransform:
     """ Represents a transform that uses its bodies position to determine its location """
     
@@ -10,7 +10,7 @@ class BodyTransform:
         """ Initialize the Body Transform with the graphical transform to wrap """
         self.graphicalTransform = graphicalTransform
         self.started = False
-        self.__position = self.graphicalTransform.position
+        self.position = self.graphicalTransform.position
         
     def start(self):
         """ Start the body transform """
@@ -42,6 +42,9 @@ class BodyTransform:
         self.graphicalTransform.position = value
         if self.started:
             self.wrapPosition()
+        else:
+            self.__position = self.graphicalTransform.position
+            
         
     def wrapPosition(self):
         """ Wrap the position """
