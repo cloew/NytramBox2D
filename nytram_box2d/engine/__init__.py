@@ -9,6 +9,7 @@ Box2DEngine = cdll.LoadLibrary("NytramBox2D.dll")
 
 CollisionCallback = EngineCallback(CFUNCTYPE(None, c_uint, c_uint))
 
+Box2DEngine.Body_GetMass.restype = c_float
 Box2DEngine.Body_GetPosition.restype = POINTER(Vec2)
 Box2DEngine.Body_GetVelocity.restype = POINTER(Vec2)
 Box2DEngine.Body_AddBoxFixture.argtypes = [c_uint, FixtureDef, c_float, c_float]
