@@ -7,6 +7,9 @@ class BodyManager
 public:
 	unsigned int addBody(b2World* world, const b2BodyDef& bodyDef);
 	b2Body* getBody(unsigned int id) {return bodies[id-1];}
+
+	// Getters
+	float32 getBodyMass(unsigned int id) {return getBody(id)->GetMass();}
 	const b2Vec2& getPosition(unsigned int id) {return getBody(id)->GetPosition();}
 
 

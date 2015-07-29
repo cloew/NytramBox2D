@@ -22,6 +22,11 @@ unsigned int World_AddBody(unsigned int worldId, const BodyDef& bodyDef)
 }
 
 // Body
+float32 Body_GetMass(unsigned int bodyId)
+{
+	return bodyManager.getBodyMass(bodyId);
+}
+
 const b2Vec2& Body_GetPosition(unsigned int bodyId)
 {
 	return bodyManager.getPosition(bodyId);

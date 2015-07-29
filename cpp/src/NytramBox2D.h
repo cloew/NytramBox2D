@@ -21,6 +21,7 @@ extern "C" {
 	NYTRAM_API unsigned int World_AddBody(unsigned int worldId, const BodyDef& bodyDef);
 
 	// Body
+	NYTRAM_API float32 Body_GetMass(unsigned int bodyId);
 	NYTRAM_API const b2Vec2& Body_GetPosition(unsigned int bodyId);
 	NYTRAM_API void Body_SetPosition(unsigned int bodyId, const b2Vec2& position);
 	NYTRAM_API unsigned int Body_AddBoxFixture(unsigned int bodyId, const FixtureDef& fixtureDef, float width, float height);
