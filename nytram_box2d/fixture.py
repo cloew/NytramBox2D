@@ -1,5 +1,7 @@
 from .engine.fixture_def import FixtureDef
+from kao_decorators import proxy_for
 
+@proxy_for("fixtureDef", ["userData"])
 class Fixture:
     """ Represents a fixture to apply to a body """
     

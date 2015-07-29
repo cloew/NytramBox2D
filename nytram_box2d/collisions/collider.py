@@ -4,10 +4,11 @@ class Collider:
     """ Represents a collider property of a Fixture """
     entity = EngineAttr("register")
     
-    def __init__(self, registrations):
+    def __init__(self, fixtures, registrations):
         """ Initialize the collider with the collisions it participates in """
-        self.pairToRegistration = {reg.pair:reg for reg in registrations}
         self.id = None
+        self.fixtures = fixtures
+        self.pairToRegistration = {reg.pair:reg for reg in registrations}
         
     @property
     def pairs(self):
@@ -17,6 +18,8 @@ class Collider:
     def register(self):
         """ Register the collider with the collision manager """
         self.collisionManager.register(self)
+        for fixture in self.fixtures:
+            fixture.userData = self.id
         
     @property
     def collisionManager(self):
