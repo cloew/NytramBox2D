@@ -14,6 +14,7 @@ public:
 	// Getters
 	float32 getBodyMass(unsigned int id) {return getBody(id)->GetMass();}
 	const b2Vec2& getPosition(unsigned int id) {return getBody(id)->GetPosition();}
+	const b2Vec2& getVelocity(unsigned int id) {return getBody(id)->GetLinearVelocity();}
 
 	// Setters
 	void setPosition(unsigned int id, const b2Vec2& position) {b2Body* body = getBody(id); body->SetTransform(position, body->GetAngle());}

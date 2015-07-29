@@ -37,6 +37,11 @@ const b2Vec2& Body_GetPosition(unsigned int bodyId)
 	return bodyManager.getPosition(bodyId);
 }
 
+const b2Vec2& Body_GetVelocity(unsigned int bodyId)
+{
+	return bodyManager.getVelocity(bodyId);
+}
+
 void Body_SetPosition(unsigned int bodyId, const b2Vec2& position)
 {
 	bodyManager.getPosition(bodyId);

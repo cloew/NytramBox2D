@@ -24,6 +24,7 @@ extern "C" {
 	NYTRAM_API void Body_ApplyImpulse(unsigned int bodyId, const b2Vec2& impulse);
 	NYTRAM_API float32 Body_GetMass(unsigned int bodyId);
 	NYTRAM_API const b2Vec2& Body_GetPosition(unsigned int bodyId);
+	NYTRAM_API const b2Vec2& Body_GetVelocity(unsigned int bodyId);
 	NYTRAM_API void Body_SetPosition(unsigned int bodyId, const b2Vec2& position);
 	NYTRAM_API unsigned int Body_AddBoxFixture(unsigned int bodyId, const FixtureDef& fixtureDef, float width, float height);
 	NYTRAM_API unsigned int Body_AddEdgeFixture(unsigned int bodyId, const FixtureDef& fixtureDef, const b2Vec2& v1, const b2Vec2& v2);
