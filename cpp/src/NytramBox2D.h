@@ -21,6 +21,7 @@ extern "C" {
 	NYTRAM_API unsigned int World_AddBody(unsigned int worldId, const BodyDef& bodyDef);
 
 	// Body
+	NYTRAM_API void Body_ApplyImpulse(unsigned int bodyId, const b2Vec2& impulse);
 	NYTRAM_API float32 Body_GetMass(unsigned int bodyId);
 	NYTRAM_API const b2Vec2& Body_GetPosition(unsigned int bodyId);
 	NYTRAM_API void Body_SetPosition(unsigned int bodyId, const b2Vec2& position);

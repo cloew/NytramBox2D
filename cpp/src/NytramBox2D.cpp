@@ -22,6 +22,11 @@ unsigned int World_AddBody(unsigned int worldId, const BodyDef& bodyDef)
 }
 
 // Body
+void Body_ApplyImpulse(unsigned int bodyId, const b2Vec2& impulse)
+{
+	bodyManager.applyImpulse(bodyId, impulse);
+}
+
 float32 Body_GetMass(unsigned int bodyId)
 {
 	return bodyManager.getBodyMass(bodyId);
