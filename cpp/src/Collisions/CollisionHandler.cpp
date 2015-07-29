@@ -14,7 +14,11 @@ void CollisionHandler::callCallback(const Collision_Callback& callback, const b2
 {
 	if (callback)
 	{
-		callback((unsigned int) contact->GetFixtureA()->GetUserData(), 
-				 (unsigned int) contact->GetFixtureB()->GetUserData());
+		unsigned int colliderAId = (unsigned int) contact->GetFixtureA()->GetUserData();
+		unsigned int colliderBId = (unsigned int) contact->GetFixtureB()->GetUserData();
+		if (colliderAId != 0 && colliderBId != 0)
+		{
+			callback(colliderAId, colliderBId);
+		}
 	}
 }
