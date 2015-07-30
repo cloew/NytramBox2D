@@ -36,7 +36,7 @@ extern "C" {
 	NYTRAM_API void Collision_SetStopCallback(Collision_Callback_fp callback);
 
 	// Joints
-	NYTRAM_API void Joint_AddWeldJoint(unsigned int worldId, const WeldJointDef& jointDef);
+	NYTRAM_API unsigned int Joint_AddWeldJoint(unsigned int worldId, const WeldJointDef& jointDef);
 	
 #if __cplusplus
 }

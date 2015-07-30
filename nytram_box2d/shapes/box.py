@@ -1,7 +1,5 @@
 from ..engine import Box2DEngine
 
-from ctypes import c_float
-
 class Box:
     """ Represents a box shape for a fixture """
     

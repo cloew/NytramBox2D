@@ -75,8 +75,8 @@ void Collision_SetStopCallback(Collision_Callback_fp callback)
 }
 
 // Joints
-void Joint_AddWeldJoint(unsigned int worldId, const WeldJointDef& jointDef)
+unsigned int Joint_AddWeldJoint(unsigned int worldId, const WeldJointDef& jointDef)
 {
 	b2WeldJointDef weldJointDef = ToWeldJointDef(jointDef, bodyManager);
-	jointManager.addJoint(worldManager.getWorld(worldId), &weldJointDef);
+	return jointManager.addJoint(worldManager.getWorld(worldId), &weldJointDef);
 }

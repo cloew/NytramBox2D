@@ -10,16 +10,18 @@ class Body:
     """ Represents a Box2D Body """
     entity = EngineAttr("applyTransform")
     
-    def __init__(self, fixtures, **kwargs):
+    def __init__(self, fixtures, wrapTransform=True, **kwargs):
         """ Initialize the Body """
         self.id = None
         self.fixtures = fixtures
         self.bodyDef = BodyDef(**kwargs)
+        self.wrapTransform = wrapTransform
         
     def applyTransform(self):
         """ Apply the Body Transform """
-        bodyTransform = BodyTransform(self.entity.transform)
-        self.entity.transform = bodyTransform
+        if self.wrapTransform:
+            bodyTransform = BodyTransform(self.entity.transform)
+            self.entity.transform = bodyTransform
         
     def start(self):
         """ Start the body in the Physics Engine """
