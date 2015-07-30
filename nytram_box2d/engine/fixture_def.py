@@ -1,3 +1,4 @@
+from .filter import Filter
 from ctypes import Structure, c_void_p, c_bool, c_float
 
 class FixtureDef(Structure):
@@ -6,4 +7,12 @@ class FixtureDef(Structure):
                 ("friction", c_float),
                 ("restitution", c_float),
                 ("density", c_float),
-                ("isSensor", c_bool)]
+                ("isSensor", c_bool),
+                ("filter", Filter)]
+                
+    def __init__(self, **kwargs):
+        """ Initialize the Fixture Def """
+        if "filter" not in kwargs:
+            kwargs["filter"] = Filter()
+        
+        Structure.__init__(self, **kwargs)

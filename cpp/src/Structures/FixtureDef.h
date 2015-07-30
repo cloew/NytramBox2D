@@ -18,7 +18,7 @@ struct FixtureDef
 	float32 restitution;
 	float32 density;
 	bool isSensor;
-	//b2Filter filter;
+	b2Filter filter;
 };
 
 b2FixtureDef ToFixtureDef(const FixtureDef& nytFixtureDef, const b2Shape* shape)
@@ -30,5 +30,10 @@ b2FixtureDef ToFixtureDef(const FixtureDef& nytFixtureDef, const b2Shape* shape)
 	fixtureDef.restitution = nytFixtureDef.restitution;
 	fixtureDef.density = nytFixtureDef.density;
 	fixtureDef.isSensor = nytFixtureDef.isSensor;
+	fixtureDef.filter = nytFixtureDef.filter;
+
+	cout << "Category bits: " << fixtureDef.filter.categoryBits << endl;
+	cout << "Mask bits: " << fixtureDef.filter.maskBits << endl;
+
 	return fixtureDef;
 }
