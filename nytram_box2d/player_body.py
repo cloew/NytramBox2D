@@ -10,11 +10,12 @@ class PlayerBody:
     """ Represents a Player's Body that is bound to a dynamic and kinematic body """
     entity = EngineAttr("attachEntityToBodies")
     
-    def __init__(self, fixtures, **kwargs):
+    def __init__(self, fixtures, kinematicFixtures=None, **kwargs):
         """ Initialize the Body """
-        self.fixtures = fixtures
+        if kinematicFixtures is None:
+            kinematicFixtures = fixtures
         self.dynamicBody = Body(fixtures, bodyType=BodyTypes.Dynamic, **kwargs)
-        self.kinematicBody = Body(fixtures, wrapTransform=False, bodyType=BodyTypes.Kinematic, **kwargs)
+        self.kinematicBody = Body(kinematicFixtures, wrapTransform=False, bodyType=BodyTypes.Kinematic, **kwargs)
         self.joint = WeldJoint(self.dynamicBody, self.kinematicBody, Vec2(0, 0))
         
     def attachEntityToBodies(self):
