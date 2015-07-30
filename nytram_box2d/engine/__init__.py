@@ -1,5 +1,6 @@
 from .vec2 import Vec2
 from .body_types import BodyTypes
+from .filter import Filter
 from .fixture_def import FixtureDef
 from .weld_joint_def import WeldJointDef
 
