@@ -32,8 +32,5 @@ b2FixtureDef ToFixtureDef(const FixtureDef& nytFixtureDef, const b2Shape* shape)
 	fixtureDef.isSensor = nytFixtureDef.isSensor;
 	fixtureDef.filter = nytFixtureDef.filter;
 
-	cout << "Category bits: " << fixtureDef.filter.categoryBits << endl;
-	cout << "Mask bits: " << fixtureDef.filter.maskBits << endl;
-
 	return fixtureDef;
 }
