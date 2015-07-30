@@ -6,7 +6,7 @@ class BodyManager
 {
 public:
 	unsigned int addBody(b2World* world, const b2BodyDef& bodyDef);
-	b2Body* getBody(unsigned int id) {return bodies[id-1];}
+	b2Body* getBody(unsigned int id) const {return bodies[id-1];}
 
 	// Forces
 	void applyImpulse(unsigned int id, const b2Vec2& impulse) {b2Body* body = getBody(id); body->ApplyLinearImpulse(impulse, body->GetWorldCenter(), true);}

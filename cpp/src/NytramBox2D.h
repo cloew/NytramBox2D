@@ -3,9 +3,11 @@
 #include "WorldManager.h"
 #include "BodyManager.h"
 #include "FixtureManager.h"
+#include "JointManager.h"
 
 #include "Structures/BodyDef.h"
 #include "Structures/FixtureDef.h"
+#include "Structures/Joints/WeldJointDef.h"
 
 #define NYTRAM_API __declspec(dllexport)
 
@@ -32,6 +34,9 @@ extern "C" {
 	// Collision
 	NYTRAM_API void Collision_SetStartCallback(Collision_Callback_fp callback);
 	NYTRAM_API void Collision_SetStopCallback(Collision_Callback_fp callback);
+
+	// Joints
+	NYTRAM_API void Joint_AddWeldJoint(unsigned int worldId, const WeldJointDef& jointDef);
 	
 #if __cplusplus
 }

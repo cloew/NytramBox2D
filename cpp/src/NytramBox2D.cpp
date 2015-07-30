@@ -3,6 +3,7 @@
 WorldManager worldManager;
 BodyManager bodyManager;
 FixtureManager fixtureManager;
+JointManager jointManager;
 
 // World
 unsigned int World_Add(const b2Vec2& gravity)
@@ -71,4 +72,11 @@ void Collision_SetStartCallback(Collision_Callback_fp callback)
 void Collision_SetStopCallback(Collision_Callback_fp callback)
 {
 	worldManager.setCollisionStopCallback(callback);
+}
+
+// Joints
+void Joint_AddWeldJoint(unsigned int worldId, const WeldJointDef& jointDef)
+{
+	b2WeldJointDef weldJointDef = ToWeldJointDef(jointDef, bodyManager);
+	jointManager.addJoint(worldManager.getWorld(worldId), &weldJointDef);
 }

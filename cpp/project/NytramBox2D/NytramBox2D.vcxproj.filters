@@ -19,6 +19,9 @@
     <Filter Include="Collisions">
       <UniqueIdentifier>{0533fa1a-0d43-4331-bbf1-d28f14d5baa5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Structures\Joints">
+      <UniqueIdentifier>{9ed09237-5a09-4169-92c7-8441349b9863}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\NytramBox2D.h">
@@ -42,6 +45,12 @@
     <ClInclude Include="..\..\src\Structures\FixtureDef.h">
       <Filter>Structures</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\JointManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Structures\Joints\WeldJointDef.h">
+      <Filter>Structures\Joints</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\NytramBox2D.cpp">
@@ -58,6 +67,9 @@
     </ClCompile>
     <ClCompile Include="..\..\src\Collisions\CollisionHandler.cpp">
       <Filter>Collisions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\JointManager.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
