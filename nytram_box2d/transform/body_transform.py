@@ -19,13 +19,8 @@ class BodyTransform:
         
     def update(self):
         """ Update the body transform """
-        position = self.getCurrentPosition()
-        # print("Updating Body position:", position)
+        position = self.body.getPositionInPhysicsEngine()
         self.graphicalTransform.position.assign(x=position.x, y=position.y)
-        
-    def getCurrentPosition(self):
-        """ Return the current position """
-        return Box2DEngine.Body_GetPosition(self.body.id).contents
         
     @property
     def body(self):
@@ -45,7 +40,6 @@ class BodyTransform:
             self.wrapPosition()
         else:
             self.__position = self.graphicalTransform.position
-            
         
     def wrapPosition(self):
         """ Wrap the position """

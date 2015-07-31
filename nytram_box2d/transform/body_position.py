@@ -51,4 +51,4 @@ class BodyPosition:
     def setPhysicsPosition(self):
         """ Set the Physics Position """
         if self.body.id:
-            Box2DEngine.Body_SetPosition(self.body.id, byref(self.vec2Position))
+            self.body.setPositionInPhysicsEngine(self.vec2Position)

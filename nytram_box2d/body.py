@@ -54,3 +54,11 @@ class Body:
     def velocity(self):
         """ Return the body's current velocity """
         return Box2DEngine.Body_GetVelocity(self.id).contents
+        
+    def getPositionInPhysicsEngine(self):
+        """ Get the position in the physics engine """
+        return Box2DEngine.Body_GetPosition(self.id).contents
+        
+    def setPositionInPhysicsEngine(self, position):
+        """ Set the position in the physics engine """
+        Box2DEngine.Body_SetPosition(self.id, byref(position))
