@@ -5,7 +5,7 @@ from .joints import WeldJoint
 from kao_decorators import proxy_for
 from nytram.engine import EngineAttr
 
-@proxy_for("dynamicBody", ["id", "world", "mass", "position", "velocity", "applyImpulse"])
+@proxy_for("dynamicBody", ["id", "world", "mass", "position", "velocity", "applyImpulse", "getPositionInPhysicsEngine", "setPositionInPhysicsEngine"])
 class PlayerBody:
     """ Represents a Player's Body that is bound to a dynamic and kinematic body """
     entity = EngineAttr("attachEntityToBodies")
@@ -16,7 +16,6 @@ class PlayerBody:
             kinematicFixtures = fixtures
         self.dynamicBody = Body(fixtures, bodyType=BodyTypes.Dynamic, **kwargs)
         self.kinematicBody = Body(kinematicFixtures, wrapTransform=False, bodyType=BodyTypes.Kinematic, **kwargs)
-        self.joint = WeldJoint(self.dynamicBody, self.kinematicBody, Vec2(0, 0))
         
     def attachEntityToBodies(self):
         """ Attach the entity to the boides """
@@ -27,5 +26,8 @@ class PlayerBody:
         """ Start the body in the Physics Engine """
         self.dynamicBody.start()
         self.kinematicBody.start()
-        self.joint.anchor = Vec2(self.position.x, self.position.y)
-        self.joint.apply()
+        
+    def update(self):
+        """ Update the Kinematic body position """
+        position = self.dynamicBody.getPositionInPhysicsEngine()
+        self.kinematicBody.setPositionInPhysicsEngine(position)
